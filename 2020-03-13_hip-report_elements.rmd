@@ -1,0 +1,273 @@
+---
+title: "Mellon Progress Report Elements"
+author: "Jamison Crawford, MPA"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    theme: readable
+    df_print: paged
+    highlight: tango
+    toc: yes
+    toc_float: yes
+---
+
+```{r include = FALSE, cache = TRUE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE,
+                      warning = FALSE)
+
+setwd("~/CASA HIP")
+
+load(file = "hip_final.RDATA")
+
+options(scipen = 999)
+
+library(kableExtra)
+
+```
+
+<br>
+<br>
+
+# Overview
+
+The following provides data tables, visualizations, descriptions, salient preprocessing
+steps, and data nuances for the **Mellon Interim Progress Report**. Elements are provided 
+separately for streamlined report inclusion.
+
+<br>
+<br>
+
+## Reproducible Documentation
+
+All documentation to reproduce preprocessing and the present reporting elements, in their 
+entirety, are available in 
+[**this GitHub repository**](https://github.com/jamisoncrawford/hip/blob/master/README.md).
+
+<br>
+<br>
+
+## Information Security
+
+All data herein are summarized and exclude personally-identifiable information. However, 
+because **Humanities Inclusivity Program** (**HIP**) scholars are few, particularly when 
+parsed by calendar year (some of which have one to two HIP scholars), these observations 
+**should be treated as identifiable**.
+
+**Disclaimer:** The Institutional Researcher and author of the present report recommends 
+suppression of all data barring program-wide summary statistics to protect HIP scholars' 
+identities and performance in accordance with the **Family Educational Rights & Privacy** 
+**Act** (**FERPA**).
+
+<br>
+<br>
+
+## Data Nuances
+
+Of the sixteen **HIP** scholars, one scholar has been removed from analysis for 
+matriculation year and performance-related outliers, resulting in fifteen total scholars.
+
+For comparison, only **non-HIP** students active in the same calendar years and enrolled 
+in the same majors are included (n = 14,123). Only courses common to **HIP** and 
+**non-HIP** students are used (n = 1,294,170).
+
+<br>
+<br>
+
+# Graphics
+
+The following data visualizations are accompanied by descriptions and data nuances.
+
+<br>
+<br>
+
+## Class-Course Level Differences
+
+`Student Class Level v. Course Level` depicts the total proportion of courses 
+for **HIP** and **non-HIP** students that are at, above, or below student class 
+(i.e. `Freshman`, `Sophomore`, `Junior`, or `Senior`). 
+
+Course levels are determined by the first digit of each course number, e.g. `1010` 
+indicates a `1-` or `1000-` level course.
+
+Class levels are determined by the BoR-designated `Student Level` in the GSU Data 
+Warehouse. For example, `10` indicates `Freshman`, `20` indicates `Sophomore`, etc.
+
+<br>
+
+```{r fig.align = "center", fig.width = 8, fig.height = 4, cache = TRUE}
+
+viz1
+
+```
+
+<br>
+<br>
+
+## Mean GPA v. Mean Course Levels
+
+`Student Class Level v. Course Level` depicts the mean `GPA` of all **HIP** and 
+**non-HIP** against mean class-course levels, i.e. the difference between 
+BoR-designated student levels and each course number category.
+
+Where n > 2, linear models are provided depicting mean `GPA` as a function of 
+mean class-course difference.
+
+<br>
+
+```{r fig.align = "center", fig.width = 8, fig.height = 5, cache = TRUE}
+
+viz2
+
+```
+
+<br>
+<br>
+
+## Mean GPA by Calendar Year
+
+`Mean GPA by Calendar Year` depicts the mean `GPA` of all **HIP** and 
+**non-HIP** over calendar years. All mean `GPA` values are "jittered" 
+vertically and horizontally (i.e. white noise is added to coordinate mapping). 
+
+Notably, **HIP** scholars' mean `GPA` values are only jittered horizontally. In 
+other words, they accurately reflect the mean `GPA` values indicated by the 
+y-axis. 
+
+<br>
+
+```{r fig.align = "center", fig.width = 8, fig.height = 4, cache = TRUE}
+
+viz3
+
+```
+
+<br>
+<br>
+
+## Mean GPA by Year & Class
+
+`Mean GPA by Calendar Year & Class` depicts a time series of the mean `GPA` of 
+all **HIP** and **non-HIP** students over calendar years and faceted by 
+BoR-designated class (i.e. `Freshman`, `Sophomore`, etc.).
+
+**Emphasis:** While **HIP** scholars tend to have higher mean `GPA` values than 
+**non-HIP** students, there is an exception among `Senior` class scholars. 
+However, the 2019 mean `GPA` values buck this trend, potentially indicating 
+improved **HIP** programming.
+
+<br>
+
+```{r fig.align = "center", fig.width = 8, fig.height = 4, cache = TRUE}
+
+viz4
+
+```
+
+<br>
+<br>
+
+# Tables
+
+The following provides tabular data on the most highly-aggregated groups 
+comparing **HIP** scholars and **non-HIP** students.
+
+<br>
+<br>
+
+## Course-Class Differences
+
+`Course-Class Differences` provides **HIP** and **non-HIP** students as described 
+in `Student Class Level v. Course Level`. Percent differences are included for 
+enhanced granularity.
+
+<br>
+
+```{r, cache = TRUE}
+
+lvls_diff_tbl %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("hover", "striped"))
+
+```
+
+<br>
+<br>
+
+## Annual Course-Class Difference
+
+`Annual Course-Class Difference` provides **HIP** and **non-HIP** students as 
+described in `Student Class Level v. Course Level`, albeit parsed by year. 
+Percent differences are included for enhanced granularity.
+
+<br>
+
+```{r, cache = TRUE}
+
+lvls_diff_yr_tbl %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("hover", "striped"))
+
+```
+
+<br>
+<br>
+
+## Summary GPA by Class
+
+`Summary GPA by Class` provides **HIP** and **non-HIP** student mean and median 
+`GPA` values aggregated by class (e.g. `Freshman`, `Sophomore`, etc.). Percent 
+differences are included for enhanced granularity.
+
+<br>
+
+```{r, cache = TRUE}
+
+gpa_mean_median_class_tbl %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("hover", "striped"))
+
+```
+
+<br>
+<br>
+
+## Summary GPA by Class & Year
+
+`Summary GPA by Class & Year` provides **HIP** and **non-HIP** student mean and 
+median `GPA` values aggregated by class (e.g. `Freshman`, `Sophomore`, etc.) and 
+parsed by calendar year. Percent differences are included for enhanced granularity.
+
+<br>
+
+```{r, cache = TRUE}
+
+gpa_mean_median_class_yr_tbl %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("hover", "striped"))
+
+```
+
+<br>
+<br>
+
+## Summary GPA by Course & Year
+
+`Summary GPA by Course & Year` provides **HIP** and **non-HIP** student mean and 
+median `GPA` values aggregated by class (e.g. `Freshman`, `Sophomore`, etc.),  
+parsed by calendar year and course level. Percent differences are included for 
+enhanced granularity.
+
+<br>
+
+```{r, cache = TRUE}
+
+regc_mean_med_tbl %>%
+  kable() %>%
+  kable_styling(bootstrap_options = c("hover", "striped"))
+
+```
+
+<br>
+<br>
