@@ -20,3 +20,5 @@ Access to general student data requires permission from various data stewards at
 * [**Connect with Jamison**](https://www.linkedin.com/in/jamisoncrawford/)
 
 **Kyle Frantz, PhD:** Director of CASA and principle author of the *Mellon Interim Report Report*. 
+
+* [**Contact Kyle**](mailto:kfrantz@gsu.edu)
