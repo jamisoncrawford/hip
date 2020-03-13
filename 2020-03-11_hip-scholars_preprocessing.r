@@ -957,3 +957,18 @@ gpa_mean_median_class_yr_tbl
 regc_mean_med_tbl
 
 save.image(file = "hip_final.RDATA")
+
+
+
+# WRITE FINAL OBJECTS
+
+ggsave(filename = "viz1.jpg", plot = viz1, width = 8, height = 4)
+ggsave(filename = "viz2.jpg", plot = viz2, width = 8, height = 5)
+ggsave(filename = "viz3.jpg", plot = viz3, width = 8, height = 4)
+ggsave(filename = "viz4.jpg", plot = viz4, width = 8, height = 4)
+
+write_csv(lvls_diff_tbl, "lvls_diff_tbl.csv")
+write_csv(lvls_diff_yr_tbl, "lvls_diff_yr_tbl.csv")
+write_csv(gpa_mean_median_class_tbl, "gpa_mean_median_class_tbl.csv")
+write_csv(gpa_mean_median_class_yr_tbl, "gpa_mean_median_class_yr_tbl.csv")
+write_csv(regc_mean_med_tbl, "regc_mean_med_tbl.csv")
