@@ -14,6 +14,9 @@ Access to general student data requires permission from various data stewards at
 
 # Contributors
 
-**Jamison R. Crawford, MPA:** Principle Institutional Researcher for data preprocessing, analysis, visualization, and reporting. [**Contact Jamison**](mailto:jcrawford52@gsu.edu). [**Connect with Jamison**](https://www.linkedin.com/in/jamisoncrawford/).
+**Jamison R. Crawford, MPA:** Principle Institutional Researcher for data preprocessing, analysis, visualization, and reporting. 
+
+* [**Contact Jamison**](mailto:jcrawford52@gsu.edu)
+* [**Connect with Jamison**](https://www.linkedin.com/in/jamisoncrawford/)
 
 **Kyle Frantz, PhD:** Director of CASA and principle author of the *Mellon Interim Report Report*. 
